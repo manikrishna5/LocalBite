@@ -764,6 +764,9 @@
     </div>
 
     <script>
+      if (localStorage.getItem("role") !== "vendor") {
+        window.location.href = "index.html";
+      }
       // Initial menu items data
       let menuItems = [
         {
