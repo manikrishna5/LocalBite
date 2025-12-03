@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet - FoodHub</title>
+
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .wallet-container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .wallet-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .balance-box {
+            background: #fff7f0;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #fc8019;
+            margin-bottom: 25px;
+        }
+
+        .balance-amount {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fc8019;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 20px 0 10px;
+            color: #282c3f;
+        }
+
+        .transaction-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #d3d3d3;
+        }
+
+        .txn-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .txn-date {
+            color: #6c757d;
+            font-size: 13px;
+        }
+
+        .txn-amount.credit {
+            color: #28a745;
+            font-weight: 700;
+        }
+
+        .txn-amount.debit {
+            color: #dc3545;
+            font-weight: 700;
+        }
+
+        .btn-orange {
+            background: #fc8019;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .btn-orange:hover {
+            background: #e66f12;
+        }
+
+        a.back-link {
+            text-decoration: none;
+            color: #fc8019;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wallet-container">
+
+        <a href="index.html" class="back-link">
+            <i class="fa fa-arrow-left"></i> Back to Home
+        </a>
+
+        <div class="wallet-header">
+            <h2>My Wallet</h2>
+            <p class="text-muted">Manage your FoodHub balance</p>
+        </div>
+
+        <!-- Balance Box -->
+        <div class="balance-box">
+            <p class="mb-1 text-muted">Available Balance</p>
+            <div class="balance-amount">₹450</div>
+        </div>
+
+        <!-- Add Money Button -->
+        <button class="btn-orange">Add Money</button>
+
+        <!-- Transactions Section -->
+        <h4 class="section-title"><i class="fa fa-receipt"></i> Recent Transactions</h4>
+
+        <div class="transaction-box">
+            <div class="txn-title">Added Money</div>
+            <div class="txn-date">Today, 2:14 PM</div>
+            <div class="txn-amount credit">+ ₹200</div>
+        </div>
+
+        <div class="transaction-box">
+            <div class="txn-title">Order Payment - Pizza Paradise</div>
+            <div class="txn-date">Yesterday, 8:40 PM</div>
+            <div class="txn-amount debit">- ₹380</div>
+        </div>
+
+        <div class="transaction-box">
+            <div class="txn-title">Refund Credited</div>
+            <div class="txn-date">2 days ago</div>
+            <div class="txn-amount credit">+ ₹150</div>
+        </div>
+
+        <div class="transaction-box">
+            <div class="txn-title">Order Payment - Burger House</div>
+            <div class="txn-date">4 days ago</div>
+            <div class="txn-amount debit">- ₹220</div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - FoodHub</title>
+
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .orders-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .order-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #fc8019;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #282c3f;
+        }
+
+        .order-status {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .delivered { background: #d4edda; color: #155724; }
+        .cancelled { background: #f8d7da; color: #721c24; }
+        .ongoing { background: #fff3cd; color: #856404; }
+
+        .order-restaurant {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .order-items {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .order-total {
+            font-weight: 600;
+            font-size: 15px;
+            color: #282c3f;
+        }
+
+        .btn-orange {
+            background: #fc8019;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            float: right;
+        }
+
+        .btn-orange:hover {
+            background: #e66f12;
+        }
+
+        a.back-link {
+            text-decoration: none;
+            color: #fc8019;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="orders-container">
+
+        <a href="index.html" class="back-link">
+            <i class="fa fa-arrow-left"></i> Back to Home
+        </a>
+
+        <h2 class="mt-3 mb-4">My Orders</h2>
+
+        <!-- Order Card 1 -->
+        <div class="order-card">
+            <div class="order-header">
+                <span>#ORDER12345</span>
+                <span class="order-status delivered">Delivered</span>
+            </div>
+
+            <div class="order-restaurant">The Golden Fork</div>
+            <div class="order-items">Paneer Butter Masala, Naan, Gulab Jamun</div>
+            <div class="order-total">Total: ₹450</div>
+
+            <button class="btn-orange mt-3">Reorder</button>
+        </div>
+
+        <!-- Order Card 2 -->
+        <div class="order-card">
+            <div class="order-header">
+                <span>#ORDER67890</span>
+                <span class="order-status ongoing">On the way</span>
+            </div>
+
+            <div class="order-restaurant">Burger House</div>
+            <div class="order-items">Cheese Burger, French Fries, Pepsi</div>
+            <div class="order-total">Total: ₹220</div>
+
+            <button class="btn-orange mt-3">Track Order</button>
+        </div>
+
+        <!-- Order Card 3 -->
+        <div class="order-card">
+            <div class="order-header">
+                <span>#ORDER10567</span>
+                <span class="order-status cancelled">Cancelled</span>
+            </div>
+
+            <div class="order-restaurant">Pizza Paradise</div>
+            <div class="order-items">Farmhouse Pizza, Garlic Bread</div>
+            <div class="order-total">Total: ₹380</div>
+
+            <button class="btn-orange mt-3">Order Again</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
