@@ -166,7 +166,7 @@
 
                 // ✅ Redirect based on DB role
                 if (data.role === "user") {
-                    window.location.href = "userpages/homepage.html";
+                    window.location.href = "userpages/index.html";
                 } else if (data.role === "vendor") {
                     window.location.href = "vendor/menu.html";
                 } else {
@@ -210,7 +210,7 @@
                     localStorage.setItem("userEmail", user.email);
 
                     if (currentRole === "user") {
-                        window.location.href = "userpages/homepage.html";
+                        window.location.href = "userpages/index.html";
                     } else {
                         window.location.href = "vendor/menu.html";
                     }
