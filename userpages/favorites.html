@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites - FoodHub</title>
+
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .fav-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .fav-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            transition: transform .2s;
+        }
+
+        .fav-card:hover {
+            transform: scale(1.02);
+        }
+
+        .fav-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .fav-details {
+            padding: 16px;
+            flex: 1;
+        }
+
+        .fav-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #282c3f;
+            margin-bottom: 6px;
+        }
+
+        .fav-cuisine {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .fav-rate {
+            display: inline-block;
+            background: #48c479;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .btn-orange {
+            background: #fc8019;
+            padding: 8px 18px;
+            border-radius: 6px;
+            color: white;
+            border: none;
+            margin-top: 10px;
+        }
+
+        .btn-orange:hover {
+            background: #e66f12;
+        }
+
+        a.back-link {
+            text-decoration: none;
+            color: #fc8019;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="fav-container">
+
+        <a href="index.html" class="back-link">
+            <i class="fa fa-arrow-left"></i> Back to Home
+        </a>
+
+        <h2 class="mb-4">Your Favorites</h2>
+
+        <!-- Favorite Card 1 -->
+        <div class="fav-card">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&h=800&fit=crop" class="fav-img">
+            <div class="fav-details">
+                <div class="fav-title">Burger House</div>
+                <div class="fav-cuisine">Burgers • Fast Food</div>
+                <span class="fav-rate"><i class="fa fa-star"></i> 4.3</span>
+                <br>
+                <button class="btn-orange">Order Now</button>
+            </div>
+        </div>
+
+        <!-- Favorite Card 2 -->
+        <div class="fav-card">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=800&fit=crop" class="fav-img">
+            <div class="fav-details">
+                <div class="fav-title">Pizza Paradise</div>
+                <div class="fav-cuisine">Italian • Pizza</div>
+                <span class="fav-rate"><i class="fa fa-star"></i> 4.2</span>
+                <br>
+                <button class="btn-orange">Order Now</button>
+            </div>
+        </div>
+
+        <!-- Favorite Card 3 -->
+        <div class="fav-card">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=800&fit=crop" class="fav-img">
+            <div class="fav-details">
+                <div class="fav-title">The Golden Fork</div>
+                <div class="fav-cuisine">North Indian • Chinese</div>
+                <span class="fav-rate"><i class="fa fa-star"></i> 4.5</span>
+                <br>
+                <button class="btn-orange">Order Now</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

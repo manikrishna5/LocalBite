@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FoodHub - Order Food Online</title>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            rel="stylesheet">
+        <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: #fff;
+}
+
+/* Header */
+.header {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 32px;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fc8019;
+}
+
+.location-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #e9e9eb;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 200px;
+}
+
+.location-section:hover {
+    border-color: #fc8019;
+}
+
+.location-icon {
+    color: #fc8019;
+    font-size: 18px;
+}
+
+.location-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-label {
+    font-size: 11px;
+    color: #93959f;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.location-value {
+    font-size: 14px;
+    color: #282c3f;
+    font-weight: 600;
+}
+
+.search-section {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 1px solid #e9e9eb;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #fc8019;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #93959f;
+}
+
+.user-section {
+    position: relative;
+}
+
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #e9e9eb;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.user-btn:hover {
+    border-color: #fc8019;
+}
+
+.user-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #fc8019;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.user-name {
+    font-size: 14px;
+    color: #282c3f;
+    font-weight: 600;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background: white;
+    border: 1px solid #e9e9eb;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    color: #282c3f;
+    font-size: 14px;
+}
+
+.dropdown-item:hover {
+    background: #f5f5f5;
+}
+
+.dropdown-item i {
+    color: #fc8019;
+    width: 20px;
+}
+
+/* Carousel */
+.carousel-section {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 20px;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+/* Food Categories */
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #282c3f;
+    margin-bottom: 24px;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 24px;
+}
+
+.category-card {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+}
+
+.category-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 12px;
+    border: 2px solid #f5f5f5;
+}
+
+.category-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #282c3f;
+}
+
+/* Restaurants */
+.restaurants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.restaurant-card {
+    border: 1px solid #e9e9eb;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.restaurant-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.restaurant-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.restaurant-info {
+    padding: 16px;
+}
+
+.restaurant-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #282c3f;
+    margin-bottom: 4px;
+}
+
+.restaurant-cuisine {
+    font-size: 14px;
+    color: #686b78;
+    margin-bottom: 8px;
+}
+
+.restaurant-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #48c479;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.time {
+    color: #686b78;
+}
+
+.price {
+    color: #686b78;
+}
+
+/* Footer */
+.footer {
+    background: #000;
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-section h4 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.footer-section ul li a:hover {
+    color: #fc8019;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    color: #999;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    .search-section {
+        order: 3;
+        flex: 1 1 100%;
+    }
+
+    .location-section {
+        min-width: auto;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .restaurants-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+    </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <a href="#" class="logo-section">
+                    <div class="logo">🍽️</div>
+                    <div class="brand-name">FoodHub</div>
+                </a>
+
+                <div class="location-section">
+                    <i class="fas fa-map-marker-alt location-icon"></i>
+                    <div class="location-text">
+                        <span class="location-label">Deliver to</span>
+                        <span class="location-value">Hyderabad</span>
+                    </div>
+                </div>
+
+                <div class="search-section">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input"
+                        placeholder="Search for restaurants, cuisines, or dishes">
+                </div>
+
+                <div class="user-section">
+                    <button class="user-btn" id="userBtn">
+                        <div class="user-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="user-name">John</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu" id="userDropdown">
+                        <button class="dropdown-item"
+                            onclick="window.location.href='myprofile.html'">
+                            <i class="fas fa-user"></i>
+                            <span>My Profile</span>
+                        </button>
+
+                        <button class="dropdown-item"
+                            onclick="window.location.href='myorders.html'">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Orders</span>
+                        </button>
+
+                        <button class="dropdown-item"
+                            onclick="window.location.href='favorites.html'">
+                            <i class="fas fa-heart"></i>
+                            <span>Favorites</span>
+                        </button>
+
+                        <button class="dropdown-item"
+                            onclick="window.location.href='wallet.html'">
+                            <i class="fas fa-wallet"></i>
+                            <span>Wallet</span>
+                        </button>
+
+                        <button class="dropdown-item"
+                            onclick="window.location.href='settings.html'">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </button>
+
+                        <button class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Carousel -->
+        <div class="carousel-section">
+            <div id="bannerCarousel" class="carousel slide"
+                data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#bannerCarousel"
+                        data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#bannerCarousel"
+                        data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#bannerCarousel"
+                        data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img
+                            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=400&fit=crop"
+                            alt="Food Banner 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img
+                            src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1200&h=400&fit=crop"
+                            alt="Food Banner 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img
+                            src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&h=400&fit=crop"
+                            alt="Food Banner 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button"
+                    data-bs-target="#bannerCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                    data-bs-target="#bannerCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Food Categories -->
+        <section class="section">
+            <h2 class="section-title">What's on your mind?</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=200&fit=crop"
+                        alt="Burgers" class="category-image">
+                    <div class="category-name">Burgers</div>
+                </div>
+                <div class="category-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=200&fit=crop"
+                        alt="Pizza" class="category-image">
+                    <div class="category-name">Pizza</div>
+                </div>
+                <div class="category-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=200&h=200&fit=crop"
+                        alt="Chinese" class="category-image">
+                    <div class="category-name">Chinese</div>
+                </div>
+                <div class="category-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=200&fit=crop"
+                        alt="Biryani" class="category-image">
+                    <div class="category-name">Biryani</div>
+                </div>
+                <div class="category-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=200&fit=crop"
+                        alt="Salads" class="category-image">
+                    <div class="category-name">Salads</div>
+                </div>
+                <div class="category-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=200&h=200&fit=crop"
+                        alt="Desserts" class="category-image">
+                    <div class="category-name">Desserts</div>
+                </div>
+                <div class="category-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=200&h=200&fit=crop"
+                        alt="Sandwiches" class="category-image">
+                    <div class="category-name">Sandwiches</div>
+                </div>
+                <div class="category-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1625869016774-3a92be2ae2cd?w=200&h=200&fit=crop"
+                        alt="Sushi" class="category-image">
+                    <div class="category-name">Sushi</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Restaurants -->
+        <section class="section">
+            <h2 class="section-title">Top restaurants near you</h2>
+            <div class="restaurants-grid">
+                <div class="restaurant-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop"
+                        alt="Restaurant 1" class="restaurant-image">
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">The Golden Fork</div>
+                        <div class="restaurant-cuisine">North Indian,
+                            Chinese</div>
+                        <div class="restaurant-details">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                4.5
+                            </span>
+                            <span class="time">30-35 mins</span>
+                            <span class="price">₹300 for two</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&h=300&fit=crop"
+                        alt="Restaurant 2" class="restaurant-image">
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Pizza Paradise</div>
+                        <div class="restaurant-cuisine">Italian, Pizzas</div>
+                        <div class="restaurant-details">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                4.2
+                            </span>
+                            <span class="time">25-30 mins</span>
+                            <span class="price">₹400 for two</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop"
+                        alt="Restaurant 3" class="restaurant-image">
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Spice Route</div>
+                        <div class="restaurant-cuisine">South Indian,
+                            Biryani</div>
+                        <div class="restaurant-details">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                4.7
+                            </span>
+                            <span class="time">20-25 mins</span>
+                            <span class="price">₹250 for two</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop"
+                        alt="Restaurant 4" class="restaurant-image">
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Burger House</div>
+                        <div class="restaurant-cuisine">Burgers, Fast Food</div>
+                        <div class="restaurant-details">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                4.3
+                            </span>
+                            <span class="time">15-20 mins</span>
+                            <span class="price">₹200 for two</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=400&h=300&fit=crop"
+                        alt="Restaurant 5" class="restaurant-image">
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Sushi Express</div>
+                        <div class="restaurant-cuisine">Japanese, Sushi</div>
+                        <div class="restaurant-details">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                4.6
+                            </span>
+                            <span class="time">35-40 mins</span>
+                            <span class="price">₹600 for two</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="restaurant-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=400&h=300&fit=crop"
+                        alt="Restaurant 6" class="restaurant-image">
+                    <div class="restaurant-info">
+                        <div class="restaurant-name">Cafe Delight</div>
+                        <div class="restaurant-cuisine">Cafe, Desserts</div>
+                        <div class="restaurant-details">
+                            <span class="rating">
+                                <i class="fas fa-star"></i>
+                                4.4
+                            </span>
+                            <span class="time">20-25 mins</span>
+                            <span class="price">₹350 for two</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="help.html">Help & Support</a></li>
+                        <li><a href="partnerwithus.html">Partner with us</a></li>
+                        <li><a href="ridewithus.html">Ride with us</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="cookie.html">Cookie Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i>
+                                Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i>
+                                Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i>
+                                Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodHub. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script>
+        // User dropdown toggle
+        const userBtn = document.getElementById('userBtn');
+        const userDropdown = document.getElementById('userDropdown');
+
+        userBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            userDropdown.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            userDropdown.classList.remove('show');
+        });
+
+        // Prevent dropdown from closing when clicking inside
+        userDropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Dropdown item actions
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const text = this.querySelector('span').textContent;
+                console.log('Clicked:', text);
+                
+                if (text === 'Logout') {
+                    alert('Logging out...');
+                    // Redirect to login page or handle logout
+                }
+                
+                userDropdown.classList.remove('show');
+            });
+        });
+
+        // Restaurant card click
+        document.querySelectorAll('.restaurant-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const name = this.querySelector('.restaurant-name').textContent;
+                alert(`Opening ${name} menu...`);
+            });
+        });
+
+        // Category card click
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const name = this.querySelector('.category-name').textContent;
+                alert(`Showing ${name} restaurants...`);
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                alert(`Searching for: ${this.value}`);
+            }
+        });
+    </script>
+    </body>
+</html>

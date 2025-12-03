@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride With Us - FoodHub</title>
+
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f8f9fa;
+        }
+
+        .container-box {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #282c3f;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #6c757d;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .feature-box {
+            display: flex;
+            gap: 16px;
+            padding: 15px;
+            margin-bottom: 18px;
+            background: #fff8f3;
+            border-left: 4px solid #fc8019;
+            border-radius: 10px;
+        }
+
+        .feature-box i {
+            font-size: 26px;
+            color: #fc8019;
+        }
+
+        .form-title {
+            font-size: 22px;
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-weight: 600;
+            color: #282c3f;
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .btn-orange {
+            background: #fc8019;
+            color: white;
+            padding: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .btn-orange:hover {
+            background: #e66f12;
+        }
+
+        a.back-link {
+            text-decoration: none;
+            color: #fc8019;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-box">
+
+        <a href="index.html" class="back-link">
+            <i class="fa fa-arrow-left"></i> Back to Home
+        </a>
+
+        <h2 class="title">Ride With FoodHub</h2>
+        <p class="subtitle">Become a FoodHub delivery partner and earn money with the freedom to choose your working hours.</p>
+
+        <!-- Benefits section -->
+        <div class="feature-box">
+            <i class="fa fa-money-bill-wave"></i>
+            <div>
+                <strong>Earn More Money</strong>
+                <p class="mb-0 text-muted">Get paid per delivery + bonuses + incentives.</p>
+            </div>
+        </div>
+
+        <div class="feature-box">
+            <i class="fa fa-clock"></i>
+            <div>
+                <strong>Flexible Working Hours</strong>
+                <p class="mb-0 text-muted">Choose when you want to work — full-time or part-time.</p>
+            </div>
+        </div>
+
+        <div class="feature-box">
+            <i class="fa fa-motorcycle"></i>
+            <div>
+                <strong>Use Your Own Vehicle</strong>
+                <p class="mb-0 text-muted">Start delivering with your bike or scooter instantly.</p>
+            </div>
+        </div>
+
+        <div class="feature-box">
+            <i class="fa fa-headset"></i>
+            <div>
+                <strong>24/7 Support</strong>
+                <p class="mb-0 text-muted">We assist you anytime during your delivery schedule.</p>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <h3 class="form-title">Delivery Partner Registration</h3>
+
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="Enter email address">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control" placeholder="Enter your city" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Do you have a bike?</label>
+                <select class="form-control" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes, I have a bike</option>
+                    <option value="no">No, I need one</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Upload Driving License</label>
+                <input type="file" class="form-control" required>
+            </div>
+
+            <button class="btn-orange" type="submit">Submit Application</button>
+        </form>
+
+    </div>
+
+</body>
+</html>

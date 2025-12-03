@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - FoodHub</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f7f7f7;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .help-container {
+            max-width: 950px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 14px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #282c3f;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        .faq-box {
+            padding: 18px;
+            margin-bottom: 18px;
+            border: 1px solid #ececec;
+            border-radius: 10px;
+        }
+
+        .faq-box h5 {
+            margin-bottom: 10px;
+            color: #fc8019;
+            font-weight: 600;
+        }
+
+        .contact-box {
+            margin-top: 35px;
+            padding: 25px;
+            background: #fff7f2;
+            border-left: 5px solid #fc8019;
+            border-radius: 10px;
+        }
+
+        .contact-box i {
+            color: #fc8019;
+            margin-right: 8px;
+        }
+
+        a.back-link {
+            text-decoration: none;
+            color: #fc8019;
+            font-weight: 600;
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .btn-orange {
+            background: #fc8019;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-orange:hover {
+            background: #e66f12;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="help-container">
+
+        <a href="index.html" class="back-link">
+            <i class="fa fa-arrow-left"></i> Back to Home
+        </a>
+
+        <h2 class="title mt-3">Help & Support</h2>
+        <p class="subtitle">Find answers to common questions or reach out to our support team.</p>
+
+        <!-- FAQs -->
+        <div class="faq-box">
+            <h5><i class="fa fa-question-circle"></i> How do I track my order?</h5>
+            <p class="text-muted">After placing your order, go to the "Orders" page to view live status and real-time tracking updates.</p>
+        </div>
+
+        <div class="faq-box">
+            <h5><i class="fa fa-question-circle"></i> I received the wrong order. What should I do?</h5>
+            <p class="text-muted">Contact support immediately. We will arrange a replacement or initiate a refund instantly.</p>
+        </div>
+
+        <div class="faq-box">
+            <h5><i class="fa fa-question-circle"></i> How do I change my delivery address?</h5>
+            <p class="text-muted">You can update your address from the “Profile” section before placing an order.</p>
+        </div>
+
+        <div class="faq-box">
+            <h5><i class="fa fa-question-circle"></i> How can I contact the delivery partner?</h5>
+            <p class="text-muted">Once the order is assigned, you will see a call icon on the order tracking screen.</p>
+        </div>
+
+        <div class="faq-box">
+            <h5><i class="fa fa-question-circle"></i> My payment failed but amount deducted.</h5>
+            <p class="text-muted">Refunds typically take 3–5 business days. If not, contact support with your transaction ID.</p>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="contact-box">
+            <h4>Contact Support</h4>
+            <p><i class="fa fa-envelope"></i> support@foodhub.com</p>
+            <p><i class="fa fa-phone"></i> +91 98765 43210</p>
+            <p><i class="fa fa-clock"></i> Available 24x7</p>
+        </div>
+
+        <!-- Message Form -->
+        <h4 class="mt-4">Have a different issue?</h4>
+        <p class="text-muted">Send us a message and we’ll respond quickly:</p>
+
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="Enter email">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Describe your issue</label>
+                <textarea class="form-control" rows="4" placeholder="Write your message"></textarea>
+            </div>
+
+            <button class="btn-orange">Send Message</button>
+        </form>
+
+    </div>
+
+</body>
+</html>
