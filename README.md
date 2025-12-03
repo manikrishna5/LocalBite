@@ -29,20 +29,6 @@ FRONTEND FEATURES
 • Dropdown menus, search bar, and promotional banners  
 • Clean UI focused on usability and performance  
 
-------------------------------------------------------------
-PAGES INCLUDED
-------------------------------------------------------------
-index.html  
-myprofile.html  
-myorders.html  
-favorites.html  
-wallet.html  
-settings.html  
-partnerwithus.html  
-ridewithus.html  
-help.html  
-terms.html  
-cookie.html  
 
 ------------------------------------------------------------
 TECH STACK
