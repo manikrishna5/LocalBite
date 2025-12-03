@@ -742,64 +742,108 @@ body {
 
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-        <script>
-        // User dropdown toggle
-        const userBtn = document.getElementById('userBtn');
-        const userDropdown = document.getElementById('userDropdown');
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+            import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
 
-        userBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            userDropdown.classList.toggle('show');
-        });
+            // Firebase config (same as before)
+            const firebaseConfig = {
+                apiKey: "AIzaSyBUysp46pAqdIRMPD5ehcH0iIFkR6gq6F4",
+                authDomain: "localbite-8ca23.firebaseapp.com",
+                projectId: "localbite-8ca23",
+                storageBucket: "localbite-8ca23.firebasestorage.app",
+                messagingSenderId: "422594180238",
+                appId: "1:422594180238:web:26cba0907d0631b1c145df"
+            };
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function() {
-            userDropdown.classList.remove('show');
-        });
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
 
-        // Prevent dropdown from closing when clicking inside
-        userDropdown.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
+            window.addEventListener("load", () => {
+                const name = localStorage.getItem("userName");
+                const email = localStorage.getItem("userEmail");
 
-        // Dropdown item actions
-        document.querySelectorAll('.dropdown-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const text = this.querySelector('span').textContent;
-                console.log('Clicked:', text);
-                
-                if (text === 'Logout') {
-                    alert('Logging out...');
-                    // Redirect to login page or handle logout
+                // Check login
+                if (!name || !email) {
+                window.location.href = "../index.html";
+                return;
                 }
-                
-                userDropdown.classList.remove('show');
-            });
-        });
 
-        // Restaurant card click
-        document.querySelectorAll('.restaurant-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const name = this.querySelector('.restaurant-name').textContent;
-                alert(`Opening ${name} menu...`);
-            });
-        });
+                // ✅ Display name in the header
+                const userNameSpan = document.querySelector(".user-name");
+                if (userNameSpan) {
+                userNameSpan.textContent = name;
+                }
 
-        // Category card click
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const name = this.querySelector('.category-name').textContent;
-                alert(`Showing ${name} restaurants...`);
-            });
-        });
+                // Dropdown toggle
+                const userBtn = document.getElementById("userBtn");
+                const userDropdown = document.getElementById("userDropdown");
 
-        // Search functionality
-        const searchInput = document.querySelector('.search-input');
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                alert(`Searching for: ${this.value}`);
-            }
-        });
-    </script>
+                userBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                userDropdown.classList.toggle("show");
+                });
+
+                document.addEventListener("click", () => {
+                userDropdown.classList.remove("show");
+                });
+
+                userDropdown.addEventListener("click", (e) => {
+                e.stopPropagation();
+                });
+
+                // ✅ Logout functionality
+                const logoutItem = [...document.querySelectorAll(".dropdown-item")]
+                .find(btn => btn.textContent.trim().toLowerCase().includes("logout"));
+
+                if (logoutItem) {
+                logoutItem.addEventListener("click", async () => {
+                    try {
+                    await signOut(auth);
+                    localStorage.clear();
+                    alert("Logged out successfully!");
+                    window.location.href = "../index.html";
+                    } catch (err) {
+                    console.error("Logout error:", err);
+                    window.location.href = "../index.html";
+                    }
+                });
+                }
+
+                // Other dropdown items — already handled below
+                document.querySelectorAll(".dropdown-item").forEach(item => {
+                item.addEventListener("click", function() {
+                    const text = this.querySelector("span")?.textContent;
+                    console.log("Clicked:", text);
+                    userDropdown.classList.remove("show");
+                });
+                });
+
+                // Restaurant card click
+                document.querySelectorAll(".restaurant-card").forEach(card => {
+                card.addEventListener("click", function() {
+                    const name = this.querySelector(".restaurant-name").textContent;
+                    alert(`Opening ${name} menu...`);
+                });
+                });
+
+                // Category card click
+                document.querySelectorAll(".category-card").forEach(card => {
+                card.addEventListener("click", function() {
+                    const name = this.querySelector(".category-name").textContent;
+                    alert(`Showing ${name} restaurants...`);
+                });
+                });
+
+                // Search functionality
+                const searchInput = document.querySelector(".search-input");
+                searchInput.addEventListener("keypress", function(e) {
+                if (e.key === "Enter") {
+                    alert(`Searching for: ${this.value}`);
+                }
+                });
+            });
+            </script>
+
     </body>
 </html>
